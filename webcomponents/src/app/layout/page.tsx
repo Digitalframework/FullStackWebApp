@@ -24,12 +24,10 @@ export default function Layout() {
                     <div className={styles.infotext}>
                         <h2 className={styles.h2}>Unser Anspruch auf Detail</h2>
                         <p className={styles.p}>
-                        Bei ABC Carpentry sind wir stolz darauf, bei jedem Projekt, das wir durchführen, außergewöhnliche Handwerkskunst
+                        Bei ABC Carpentry sind wir stolz darauf, bei jedem Projekt, dass wir durchführen, außergewöhnliche Handwerkskunst
                         und hochwertigen Kundenservice zu bieten. Unser Team aus erfahrenen Schreinern ist auf eine breite Palette von Schreinerarbeiten
-                        spezialisiert, von maßgefertigten Schränken und Möbeln bis hin zu Umbau- und Renovierungsprojekten. Mit einem Fokus
-                        zum Detail und der Verpflichtung, nur die besten Materialien zu verwenden, arbeiten wir eng mit unseren Kunden zusammen
-                        ,um ihre Visionen zum Leben zu erwecken. Egal, ob Sie Ihrem Zuhause Eleganz verleihen wollen oder Ihre Geschäftsräume
-                        renovieren möchten, wir haben die Fähigkeiten und das Fachwissen, um dies zu verwirklichen. Kontaktieren Sie uns noch heute!
+                        spezialisiert. Mit einem Fokus zum Detail und der Verpflichtung, nur die besten Materialien zu verwenden, arbeiten wir eng mit unseren Kunden zusammen
+                        ,um ihre Visionen zum Leben zu erwecken. 
 
                         </p>
                         <hr className={styles.hr}/>

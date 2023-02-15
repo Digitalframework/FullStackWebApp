@@ -48,7 +48,7 @@
     left: 30%;
     border-radius: 4px;
     background-color: #252525;
-    color: white;
+    color: #FBFBFB;
     width: 40%;
     height: 15%;
     border: none;
@@ -71,37 +71,51 @@
 .picturecontainer{
     flex-flow: column wrap;
     height:80vh;
+    margin-left: 5%;
 }
 .infotext{
     flex-flow: column wrap;
     font-family: 'EB Garamond', serif;
     line-height: 1.5;
     font-size: 25px;
-    color: white;
-    width: 50%;
+    color: #FBFBFB ;
+    width: 55%;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 .formcontainer{
-    width: 50%;
-    height: 60vh;
-    position: relative;
     border: dotted;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
-
 .hr {
     width: 80%;
+    color: #FBFBFB ;
 }
 .h2 {
     margin-top: 2%;
+    color: #FBFBFB ;
 }
 
 .h3 {
     margin-top: 2%;
+    color: #FBFBFB ;
 }
-@media screen and (max-width: 1180px) {
-    .layoutcontainer{
-    height: 200vh;
-    }
+@media screen and (max-width: 1245px) {
+
+    .infotext{
+        margin-left: 25%;
+        margin-right: 25%;
+        width: 50%;
+    }    
+    .picturecontainer{
+        margin-left: 25%;
+        margin-right: 25%;
+    }  
+    
+
 }
 @media screen and (max-width: 805px) {
     .infotext{
@@ -110,4 +124,21 @@
     .refbutton{
         font-size: 16px;
     }
+    .formcontainer{
+        margin: auto;
+    }
+    .layoutpicture{
+        height:40vh;
+    
+    }
+    .picturecontainer{
+        height:40vh;
+        margin-left: auto;
+        margin-right: auto;  
+    }
+    .picturecarousel {
+        height: 25vh;
+    } 
+
+
 }
