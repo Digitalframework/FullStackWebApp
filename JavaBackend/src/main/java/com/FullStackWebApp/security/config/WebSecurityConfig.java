@@ -29,7 +29,7 @@ public class WebSecurityConfig{
     }
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider
+
     }
 
 }

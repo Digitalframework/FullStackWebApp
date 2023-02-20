@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/FullStackWebApp.iml" filepath="$PROJECT_DIR$/.idea/FullStackWebApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FullStackWebApp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/FullStackWebApp.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FullStackWebApp.test.iml" filepath="$PROJECT_DIR$/.idea/modules/FullStackWebApp.test.iml" />
     </modules>
   </component>
 </project>
