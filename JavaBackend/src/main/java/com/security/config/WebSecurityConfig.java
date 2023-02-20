@@ -28,4 +28,8 @@ public class WebSecurityConfig{
         return http.build();
     }
 
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider
+    }
+
 }
