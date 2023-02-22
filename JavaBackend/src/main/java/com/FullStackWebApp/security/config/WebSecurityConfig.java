@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.security.config;
+package com.FullStackWebApp.security.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;

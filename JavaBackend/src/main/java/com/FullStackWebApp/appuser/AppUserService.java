@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.appuser;
+package com.FullStackWebApp.appuser;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

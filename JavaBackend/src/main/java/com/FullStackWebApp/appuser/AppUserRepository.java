@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.appuser;
+package com.FullStackWebApp.appuser;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;

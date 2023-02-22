@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.appuser;
+package com.FullStackWebApp.appuser;
 
 public enum AppUserRole {
 

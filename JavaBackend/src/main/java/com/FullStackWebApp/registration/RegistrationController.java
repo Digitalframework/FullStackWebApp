@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.registration;
+package com.FullStackWebApp.registration;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
