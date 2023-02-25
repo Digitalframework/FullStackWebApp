@@ -1,0 +1,144 @@
+.pagewrapper {
+}
+
+.picturecarousel {
+    display:flex;
+    margin-top: 1em;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-color: #252525;
+}
+.picturecarousel>img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	animation: animate 11s infinite;
+	opacity: 0;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+.picturecarousel>img:nth-child(2) {
+	animation-delay: 3s;
+}
+.picturecarousel>img:nth-child(3) {
+	animation-delay: 6s;
+}
+.picturecarousel>img:nth-child(4) {
+	animation-delay: 9s;
+}
+
+
+@keyframes animate {
+	10% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 0;
+	}
+}
+.refbutton{
+    position: absolute;
+    bottom: 50px;
+    left: 30%;
+    border-radius: 4px;
+    background-color: #252525;
+    color: #FBFBFB;
+    width: 40%;
+    height: 15%;
+    border: none;
+    font-size: 22px;
+    opacity: .5;
+}
+
+.layoutcontainer{
+    margin-top: 2em;
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.layoutpicture{
+    height:80vh;
+
+}
+.picturecontainer{
+    flex-flow: column wrap;
+    height:80vh;
+    margin-left: 5%;
+}
+.infotext{
+    flex-flow: column wrap;
+    font-family: 'EB Garamond', serif;
+    line-height: 1.5;
+    font-size: 25px;
+    color: #FBFBFB ;
+    width: 55%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.formcontainer{
+    border: dotted;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.hr {
+    width: 80%;
+    color: #FBFBFB ;
+}
+.h2 {
+    margin-top: 2%;
+    color: #FBFBFB ;
+}
+
+.h3 {
+    margin-top: 2%;
+    color: #FBFBFB ;
+}
+@media screen and (max-width: 1245px) {
+
+    .infotext{
+        margin-left: 25%;
+        margin-right: 25%;
+        width: 50%;
+    }    
+    .picturecontainer{
+        margin-left: 25%;
+        margin-right: 25%;
+    }  
+    
+
+}
+@media screen and (max-width: 805px) {
+    .infotext{
+        font-size: 16px;
+    }
+    .refbutton{
+        font-size: 16px;
+    }
+    .formcontainer{
+        margin: auto;
+    }
+    .layoutpicture{
+        height:40vh;
+    
+    }
+    .picturecontainer{
+        height:40vh;
+        margin-left: auto;
+        margin-right: auto;  
+    }
+    .picturecarousel {
+        height: 25vh;
+    } 
+
+
+}
