@@ -47,4 +47,8 @@ public class WebSecurityConfig{
         return provider
     }
 
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+    }
+
 }
