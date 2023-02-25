@@ -1,4 +1,4 @@
-package com.Webapp.FullStackWebApp.security;
+package com.FullStackWebApp.security;
 
 public class PasswordEncoder {
 }
