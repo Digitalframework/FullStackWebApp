@@ -4,8 +4,6 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.0"
 }
 
-group = "com.FullStackWebApp"
-version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -20,3 +18,5 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+

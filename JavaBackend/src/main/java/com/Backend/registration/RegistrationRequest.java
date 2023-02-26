@@ -1,4 +1,4 @@
-package com.FullStackWebApp.registration;
+package com.Backend.registration;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

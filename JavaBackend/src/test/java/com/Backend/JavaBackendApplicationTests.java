@@ -1,13 +1,14 @@
-package com.Webapp.FullStackWebApp;
+package com.Backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 @SpringBootTest
-class FullStackWebAppApplicationTests {
+public class JavaBackendApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
+
+
