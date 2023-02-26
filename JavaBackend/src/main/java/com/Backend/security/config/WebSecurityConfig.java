@@ -36,7 +36,6 @@ public class WebSecurityConfig extends AbstractHttpConfigurer<WebSecurityConfig,
     }
 
 
-
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
@@ -44,6 +43,8 @@ public class WebSecurityConfig extends AbstractHttpConfigurer<WebSecurityConfig,
         authenticationManagerBuilder.authenticationProvider(daoAuthenticationProvider());
         return authenticationManagerBuilder.build();
     }
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -54,9 +55,11 @@ public class WebSecurityConfig extends AbstractHttpConfigurer<WebSecurityConfig,
                 .permitAll()
                 .anyRequest()
                 .authenticated().and()
-                .authenticationManager(authManager(http));
+                .formLogin();
+                //.authenticationManager(authManager(http));
         return http.build();
     }
+
 
 
 
