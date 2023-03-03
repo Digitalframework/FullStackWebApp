@@ -1,0 +1,14 @@
+.infotext{
+    flex-flow: column wrap;
+    font-family: 'EB Garamond', serif;
+    line-height: 1.5;
+    font-size: 25px;
+    color: #FBFBFB ;
+    width: 55%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.h2 {
+    margin-top: 2%;
+    color: #FBFBFB ;
+}
