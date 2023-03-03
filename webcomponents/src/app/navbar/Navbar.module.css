@@ -1,0 +1,93 @@
+
+
+/* Style the top navigation bar */
+
+
+.wrapper{
+  margin: 5 auto;
+  
+}
+.logo {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  margin: 1rem;
+  width: 20%;
+}
+
+
+/* Change color on hover */
+.navlist ul{
+  list-style-type: none;
+  display: flex;
+  
+}
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+}
+.navlist li:nth-child(-n+4){
+    translate: -80%;
+}
+
+.navlist li a{
+  margin: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.6rem;
+  display: block;
+  color: gray;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+.navlist a:hover {
+  color: white;
+}
+
+.togglebutton{
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  right:  2rem;
+  top: 4rem;
+  width: 60px;
+  height: 42px;
+  background-color: #000000;
+}
+.togglebutton .bar{
+  height: 8px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width: 805px) {
+  .togglebutton {
+    display: flex;
+  }
+  .navlist li:nth-child(-n+4){
+      translate: 0;
+  }
+
+  .navlist ul{
+    flex-direction: column;
+    width: 100%;
+  } 
+  .navlist li {
+    align-items: center;
+  }
+  .navbar{
+    flex-direction: column;
+  }
+  
+
+  
+
+}
