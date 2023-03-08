@@ -3,11 +3,10 @@
 
 .picturecarousel {
     display:flex;
-    margin-top: 1em;
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 628px;
     background-color: #252525;
 }
 .picturecarousel>img {
