@@ -5,30 +5,34 @@ import { useState, useEffect } from 'react';
 
 export default function Register() {
 
-  const [user, setUser] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  });
-
-  const { firstname, lastname, email,password } = user;
-
-  const onInputChange = (e:any) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
   //url: 'http://localhost:8080/api/v1/auth/register',
   async function onSubmit (event:any) {
     event.preventDefault()
     try {
     await axios.post(
       'http://localhost:8080/api/v1/auth/register',
-      user
-    );
+      {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      }
+    )//;
+    .then(function (response) {
+    alert("Registration sucessful")
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");  
+    console.log(response);
+    })
     
-    setUser({firstname, lastname, email,password});
-  }
+    }
     catch(err){
       alert("User Registration failed");
     }
@@ -41,7 +45,7 @@ export default function Register() {
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
           <h2 className="text-center m-4">Register User</h2>
 
-          <form onSubmit={(e) => onSubmit(e)}>
+          <form onSubmit={onSubmit}>
             <div className="mb-3">
               <label htmlFor="firstname" className="form-label">
                 Name
@@ -51,8 +55,10 @@ export default function Register() {
                 className="form-control"
                 placeholder="Enter your firstname"
                 name="firstname"
-                value={firstname}
-                onChange={(e) => onInputChange(e)}
+                value={firstName}
+                onChange={(event) => {
+                  setFirstName(event.target.value)
+                }}
               />
             </div>
             <div className="mb-3">
@@ -64,8 +70,10 @@ export default function Register() {
                 className="form-control"
                 placeholder="Enter your lastname"
                 name="lastname"
-                value={lastname}
-                onChange={(e) => onInputChange(e)}
+                value={lastName}
+                onChange={(event) => {
+                  setLastName(event.target.value)
+                }}
               />
             </div>
 
@@ -79,7 +87,9 @@ export default function Register() {
                 placeholder="Enter your e-mail address"
                 name="email"
                 value={email}
-                onChange={(e) => onInputChange(e)}
+                onChange={(event) => {
+                  setEmail(event.target.value)
+                }}
               />
             </div>
 
@@ -93,7 +103,9 @@ export default function Register() {
                             placeholder="Enter your password"
                             name="password"
                             value={password}
-                            onChange={(e) => onInputChange(e)}
+                            onChange={(event) => {
+                              setPassword(event.target.value)
+                            }}
                           />
                         </div>
             <button type="submit" className="btn btn-outline-primary">
