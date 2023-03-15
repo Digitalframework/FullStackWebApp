@@ -4,7 +4,7 @@
 	text-align: center;
 	position: relative;
 }
-.msform fieldset {
+.fieldset {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -17,10 +17,7 @@
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
-/*Hide all except first fieldset*/
-.msform fieldset:not(:first-of-type) {
-	display: none;
-}
+
 /*inputs*/
 .msform input, .msform textarea {
 	padding: 25px;
@@ -34,7 +31,7 @@
 	font-size: 13px;
 }
 /*buttons*/
-.msform .action-button {
+.msform .actionbutton {
 	width: 100px;
 	background: #27AE60;
 	font-weight: bold;

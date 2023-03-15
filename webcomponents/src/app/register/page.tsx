@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 
 export default function Register() {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,8 +17,8 @@ export default function Register() {
     await axios.post(
       'http://localhost:8080/api/v1/auth/register',
       {
-        firstName: firstName,
-        lastName: lastName,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
         password: password,
       }
@@ -29,7 +29,7 @@ export default function Register() {
     setLastName("");
     setEmail("");
     setPassword("");  
-    console.log(response);
+    console.log(response.data);
     })
     
     }
@@ -55,7 +55,7 @@ export default function Register() {
                 className="form-control"
                 placeholder="Enter your firstname"
                 name="firstname"
-                value={firstName}
+                value={firstname}
                 onChange={(event) => {
                   setFirstName(event.target.value)
                 }}
@@ -70,7 +70,7 @@ export default function Register() {
                 className="form-control"
                 placeholder="Enter your lastname"
                 name="lastname"
-                value={lastName}
+                value={lastname}
                 onChange={(event) => {
                   setLastName(event.target.value)
                 }}
