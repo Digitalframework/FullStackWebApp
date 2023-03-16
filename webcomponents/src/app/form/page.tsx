@@ -7,28 +7,28 @@ import { AddressForm } from "./AddressForm";
 import { OrderForm } from "./OrderForm";
 
 type FormData = {
-  firstname: string
-  lastname: string
-  email: string
+  firstnameUF: string
+  lastnameUF: string
+  emailUF: string
   street: string
   number: string
   city: string
   zip: string
-  quadratmeteranzahl: string
-  holzart: string
-  datum: string
+  sqm: string
+  productType: string
+  date: Date
 }
 const INITIAL_DATA: FormData = {
-  firstname: "",
-  lastname: "",
-  email: "",
+  firstnameUF: "",
+  lastnameUF: "",
+  emailUF: "",
   street: "",
   number: "",
   city: "",
   zip: "",
-  quadratmeteranzahl: "",
-  holzart: "",
-  datum: "",
+  sqm: "",
+  productType: "",
+  date: new Date("23/25/2014")
 }
 
 export default function Form() {

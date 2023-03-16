@@ -1,29 +1,35 @@
+import { useState } from 'react'
 import styles from './Form.module.css'
 import { FormWrapper } from './FormWrapper'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Dropdown } from './Dropdown';
 
-type AddressData = {
-  street: string
-  number: string
-  city: string
-  zip: string
+type OrderData = {
+  sqm: string
+  productType: string
+  date: Date
 }
 
-type OrderFormProps = AddressData & {
-  updateFields: (fields: Partial<AddressData>) => void
+type OrderFormProps = OrderData & {
+  updateFields: (fields: Partial<OrderData>) => void
 }
-
+//<input type="text" name="productType" placeholder="Holzart" required/>
 export function OrderForm({
-  street,
-  number,
-  city,
-  zip,
+  sqm,
+  productType,
+  date,
   updateFields,
-}: OrderFormProps) {
+}: OrderFormProps)
+ {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <FormWrapper title="Adressdaten">
-        <input type="text" name="quadratmeteranzahl" placeholder="Quadratmeteranzahl" required/>
-        <input type="text" name="holzart" placeholder="Holzart" required/>
-        <input type="text" name="datum" placeholder="Datum" required/>
+        <input type="text" name="sqm" placeholder="Quadratmeteranzahl" required/>
+        
+        
+        <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} />
+        <Dropdown></Dropdown>
     </FormWrapper>
     ) 
     
