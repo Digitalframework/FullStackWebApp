@@ -3,19 +3,22 @@ import styles from './Layout.module.css'
 import Navbar from '../navbar/page';
 import Form from '../form/page';
 import { useState } from 'react';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export default function Layout() {
+
+    const {height,width} = useWindowDimensions();
 
     return (
         <div className={styles.pagewrapper}>
             <Navbar></Navbar>
 
-                <div className={styles.picturecarousel}>
+                <div className={styles.picturecarousel} style={{height: height-0.15*height}}>
 		            <img src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""/>
                     <img src="https://images.pexels.com/photos/3680454/pexels-photo-3680454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""/>
                     <img src="https://images.pexels.com/photos/13176371/pexels-photo-13176371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""/>
                     <img src="https://images.pexels.com/photos/5089149/pexels-photo-5089149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""/>
-                    <button onclick="#" className={styles.refbutton}>Erfahren Sie mehr zu unseren Projekten</button>
+                    <button className={styles.refbutton}>Erfahren Sie mehr zu unseren Projekten</button>
                 </div>
                 <div className={styles.layoutcontainer}>
                     <div className={styles.picturecontainer}>

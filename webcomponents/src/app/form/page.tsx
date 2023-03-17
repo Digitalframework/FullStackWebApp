@@ -1,41 +1,75 @@
 'use client';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import styles from './Form.module.css'
+import {useMultistepForm} from '../../hooks/useMultistepForm';
+import { UserForm } from "./UserForm";
+import { AddressForm } from "./AddressForm";
+import { OrderForm } from "./OrderForm";
 
+type FormData = {
+  firstnameUF: string
+  lastnameUF: string
+  emailUF: string
+  street: string
+  number: string
+  city: string
+  zip: string
+  sqm: string
+  productType: string
+  date: Date
+}
+const INITIAL_DATA: FormData = {
+  firstnameUF: "",
+  lastnameUF: "",
+  emailUF: "",
+  street: "",
+  number: "",
+  city: "",
+  zip: "",
+  sqm: "",
+  productType: "",
+  date: new Date("23/25/2014")
+}
 
 export default function Form() {
 
+  const [data, setData] = useState(INITIAL_DATA)
+  function updateFields(fields: Partial<FormData>) {
+    setData(prev => {
+      return { ...prev, ...fields }
+    })
+  }
+  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
+    useMultistepForm([
+      <UserForm {...data} updateFields={updateFields} />,
+      <AddressForm {...data} updateFields={updateFields} />,
+      <OrderForm {...data} updateFields={updateFields} />,
+    ])
+
+  function onSubmit(e: FormEvent) {
+    e.preventDefault()
+    if (!isLastStep) return next()
+    alert("Successful Account Creation")
+  }
+  /*
+
+      */
     return (
-    <form className={styles.msform}>
-      <ul className={styles.progressbar}>
+      <div>
+    <form className={styles.msform} onSubmit={onSubmit}>
+    <ul className={styles.progressbar}>
         <li>Kundeninfos</li>
         <li>Adressdaten</li>
         <li>Auftragsinfos</li>
       </ul>
-      <fieldset>
-        <h2 className={styles.fstitle}>Kundeninfos</h2>
-        <input type="text" name="vorname" placeholder="Vorname" />
-        <input type="text" name="nachnname" placeholder="Nachname" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="button" name="next" className="next action-button" value="Next" />
-      </fieldset>
-      <fieldset>
-              <h2 className={styles.fstitle}>Adressdaten</h2>
-              <input type="text" name="vorname" placeholder="Vorname" />
-              <input type="text" name="nachnname" placeholder="Nachname" />
-              <input type="text" name="email" placeholder="Email" />
-              <input type="button" name="previous" className="previous action-button" value="Previous" />
-              <input type="button" name="next" className="next action-button" value="Next" />
-      </fieldset>
-      <fieldset>
-        <h2 class="fs-title">Auftragsinfos</h2>
-        <input type="text" name="twitter" placeholder="Twitter" />
-        <input type="text" name="facebook" placeholder="Facebook" />
-        <input type="text" name="gplus" placeholder="Google Plus" />
-        <input type="button" name="previous" className="previous action-button" value="Previous" />
-        <input type="button" name="next" className="next action-button" value="Next" />
-         <a href="https://twitter.com/GoktepeAtakan" class="submit action-button" target="_top">Submit</a>
-      </fieldset>
+      {step}
+          {!isFirstStep && (
+            <button type="button" onClick={back} className={styles.actionbutton}>
+              Back
+            </button>
+          )}
+          <button type="submit" className={styles.actionbutton}>{isLastStep ? "Finish" : "Next"}</button>
     </form>
+    </div>
     )
 }

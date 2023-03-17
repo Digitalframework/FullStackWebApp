@@ -4,7 +4,7 @@
 	text-align: center;
 	position: relative;
 }
-.msform fieldset {
+.fieldset {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -17,10 +17,7 @@
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
-/*Hide all except first fieldset*/
-.msform fieldset:not(:first-of-type) {
-	display: none;
-}
+
 /*inputs*/
 .msform input, .msform textarea {
 	padding: 25px;
@@ -34,7 +31,7 @@
 	font-size: 13px;
 }
 /*buttons*/
-.msform .action-button {
+.msform .actionbutton {
 	width: 100px;
 	background: #27AE60;
 	font-weight: bold;
@@ -106,6 +103,37 @@
 	background: #27AE60;
 	color: white;
 }
+
+
+
+
+.dropdowncontent {
+	display: none;
+	background-color: #f9f9f9;
+	min-width: 80%;
+	box-shadow: 0px 8px 16px 
+		0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+.dropdowncontent li {
+	display: inline;
+}
+
+.dropdowncontent li a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdowncontent a:hover {
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdowncontent {
+	display: block;
+}
+
 
 @media screen and (max-width: 805px) {
 

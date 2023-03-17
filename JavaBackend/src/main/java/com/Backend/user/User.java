@@ -74,4 +74,12 @@ public class User implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
+
+  public String getFirstName() {
+    return firstname;
+  }
+
+  public String getLastName() {
+    return lastname;
+  }
 }
