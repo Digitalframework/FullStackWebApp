@@ -1,0 +1,27 @@
+
+
+/* Style the top navigation bar */
+
+
+.wrapper{
+    margin: 5 auto;
+    
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* statt justify-content: space-between; */
+    background-color: #000000;
+    height: 100px; /* Höhe, damit der Footer sichtbar ist */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+.text {
+    font-family: Montserrat, sans-serif;
+    color: gray;
+}
+.text:hover {
+    color: white;
+}
+ 

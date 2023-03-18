@@ -30,9 +30,9 @@ export default function Navbar() {
                 </button>
                 <div className={styles.navlist} style={{display: hamburgerOpen || width >= 805 ? 'flex' : 'none'}}>
                     <ul>
-                        <li ><a href="#">Home</a></li>
-                        <li ><a href="#">Projekte</a></li>
-                        <li ><a href="#">ÜberUns</a></li>
+                        <li ><a href="/layout">Home</a></li>
+                        <li ><a href="/projects">Projekte</a></li>
+                        <li ><a href="/aboutUs">ÜberUns</a></li>
                         <li><a href="#">Kontakt</a></li>
                         <li><a href="#">Login</a></li>
                     </ul>
