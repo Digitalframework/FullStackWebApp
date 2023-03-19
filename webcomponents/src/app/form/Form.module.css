@@ -1,3 +1,7 @@
+.formroot{
+	height: 800px;
+}
+
 .msform {
 	width: 600px;
 	margin: 50px auto;
@@ -114,16 +118,19 @@
 	box-shadow: 0px 8px 16px 
 		0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
-}
-.dropdowncontent li {
-	display: inline;
+	grid-template-columns: 200px 200px;
+  	grid-row: auto auto;
+  	grid-column-gap: 20px;
+  	grid-row-gap: 20px;
+
 }
 
-.dropdowncontent li a {
+
+.dropdowncontent a {
 	color: black;
 	padding: 12px 16px;
 	text-decoration: none;
-	display: block;
+	
 }
 
 .dropdowncontent a:hover {
@@ -131,9 +138,23 @@
 }
 
 .dropdown:hover .dropdowncontent {
-	display: block;
+	display: grid;
 }
 
+.label {
+	position: relative;
+  }
+  
+  .label:before {
+	content: "";
+	position: absolute;
+	right: 20px;
+	top: 0;
+	bottom: 0;
+	width: 20px;
+	background: url("data:image/svg+xml,%3Csvg fill='%23000000' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='140px' height='140px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cg%3E%3Cpath d='M78.466,35.559L50.15,63.633L22.078,35.317c-0.777-0.785-2.044-0.789-2.828-0.012s-0.789,2.044-0.012,2.827L48.432,67.58 c0.365,0.368,0.835,0.563,1.312,0.589c0.139,0.008,0.278-0.001,0.415-0.021c0.054,0.008,0.106,0.021,0.16,0.022 c0.544,0.029,1.099-0.162,1.515-0.576l29.447-29.196c0.785-0.777,0.79-2.043,0.012-2.828S79.249,34.781,78.466,35.559z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  
 
 @media screen and (max-width: 805px) {
 

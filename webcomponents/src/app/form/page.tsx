@@ -55,7 +55,7 @@ export default function Form() {
 
       */
     return (
-      <div>
+      <div className={styles.formroot}>
     <form className={styles.msform} onSubmit={onSubmit}>
     <ul className={styles.progressbar}>
         <li>Kundeninfos</li>
