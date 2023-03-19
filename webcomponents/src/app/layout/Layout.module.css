@@ -6,26 +6,26 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    background-color: #252525;
+    background: #222222;
 }
 .picturecarousel>img {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	animation: animate 11s infinite;
+	animation: animate 15s infinite;
 	opacity: 0;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
 }
 .picturecarousel>img:nth-child(2) {
-	animation-delay: 3s;
+	animation-delay: 4s;
 }
 .picturecarousel>img:nth-child(3) {
-	animation-delay: 6s;
+	animation-delay: 8s;
 }
 .picturecarousel>img:nth-child(4) {
-	animation-delay: 9s;
+	animation-delay: 12s;
 }
 
 
@@ -40,25 +40,103 @@
 		opacity: 0;
 	}
 }
-.refbutton{
+.h1carousel {
+    font-size: 35px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #FBFBFB ;
+    width: 100%;
     position: absolute;
-    bottom: 50px;
-    left: 30%;
-    border-radius: 4px;
-    background-color: #252525;
-    color: #FBFBFB;
-    width: 40%;
-    height: 15%;
-    border: none;
-    font-size: 22px;
-    opacity: .5;
+}
+
+.hrcarousel {
+    width: 80%;
+    color: #FBFBFB ;
+    position: absolute;
+}
+
+.pcarousel {
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 25px;
+    color: #FBFBFB ;
+    width: 100%;
+    position: absolute;
+  }
+
+.buttonwrapper {
+    font-family: sans-serif;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+  }
+  
+.btn{
+  padding: 15px 100px;
+  margin:10px 4px;
+  color: #FBFBFB ;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;
+  
+}
+
+.btn{
+  border:1px solid transparent; 
+   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  border-left:4px solid #6098FF;
+
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom:0px;
+  z-index:-1;
+  width: 0%;
+  height:1px;
+  background: #6098FF;
+  box-shadow: inset 0px 0px 0px #6098FF;
+  display: block;
+  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+
+.btn:hover::before {
+  width:100%;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  right: 0px;
+  top:0px;
+  z-index:-1;
+  width: 0%;
+  height:1px;
+  background: #6098FF;
+  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+.btn:hover::after {
+  width:100%;
+}
+.btn:hover{
+  border-left:1px solid #6098FF;
+  border-right:1px solid #6098FF;
 }
 
 .layoutcontainer{
-    margin-top: 2em;
     display:flex;
     flex-wrap: wrap;
     width: 100%;
+    background: #254E58;
 
 }
 
@@ -73,21 +151,62 @@
 }
 .infotext{
     flex-flow: column wrap;
-    font-family: 'EB Garamond', serif;
+    font-family: sans-serif;
     line-height: 1.5;
     font-size: 25px;
     color: #FBFBFB ;
     width: 55%;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: auto;
 }
 
+.verticalbar {
+    width: auto;
+    height: 240px;
+    position: absolute;
+    margin-right: 20%;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 14.707 14.707' xml:space='preserve' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cg%3E%3Crect x='6.275' y='0' style='fill:%23FBFBFB;' width='2.158' height='14.707'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); 
+    background-size: 72px 165px;
+    background-repeat: no-repeat;
+}
 .formcontainer{
     width: 100%;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.contactcontainer{
+    background: #254E58;
+    width: 100%;
+    height: 660px;
+}
+
+.tilecontainer{
+    
+    width:100%;
+    height: 660px;
+    background:#4F4A41;
+}
+
+.productinfo{
+    float: left;
+    width: 86%;
+    height: 576px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background:#6E6658;
+}
+
+.backgroundcontainer{
+    float: left;
+    width: 144px;
+    height: 660px;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='288.000000pt' height='660.000000pt' viewBox='0 0 288.000000 660.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cg transform='translate(0.000000,655.000000) scale(0.100000,-0.100000)'%0Afill='%23000000' stroke='none'%3E%3Cpath d='M0 3275 l0 -3275 1440 0 1440 0 0 3260 c0 2167 -3 3260 -10 3260 -7%0A0 -10 -547 -10 -1621 0 -1511 -1 -1621 -17 -1608 -9 8 -255 289 -547 624 -672%0A771 -1438 1652 -1536 1765 -41 48 -219 252 -395 454 -176 202 -324 374 -328%0A382 -7 12 192 14 1408 14 937 0 1415 3 1415 10 0 7 -483 10 -1430 10 l-1430 0%0A0 -3275z m479 2701 c234 -269 716 -823 1070 -1230 684 -787 859 -988 1118%0A-1285 l162 -186 -387 -3 c-213 -1 -392 0 -398 2 -6 2 -69 69 -140 149 -71 79%0A-433 483 -804 897 -371 415 -766 855 -877 979 l-202 226 -1 484 c0 449 1 482%0A17 470 9 -8 208 -234 442 -503z m353 -1383 c442 -494 888 -992 992 -1108 l188%0A-210 -398 -3 -399 -3 -25 29 c-14 16 -104 116 -201 223 -351 387 -865 956%0A-916 1014 l-53 59 0 448 c0 246 2 448 4 448 3 0 366 -404 808 -897z m-576%0A-289 c98 -109 291 -322 428 -473 137 -152 287 -318 334 -369 46 -50 104 -115%0A129 -142 l45 -50 -405 0 -406 0 -180 197 -181 197 0 449 0 449 28 -30 c16 -17%0A109 -120 208 -228z m-85 -831 c79 -86 152 -167 162 -180 l18 -23 -165 0 -166%0A0 0 180 c0 99 2 180 3 180 2 0 69 -71 148 -157z m139 -270 c-24 -27 -99 -108%0A-167 -180 l-123 -133 0 180 0 180 166 0 167 0 -43 -47z m870 42 c0 -5 -156%0A-178 -924 -1025 l-231 -255 -3 443 c-2 433 -2 444 18 470 11 14 91 103 178%0A198 l157 173 403 1 c221 0 402 -2 402 -5z m769 -67 c-35 -40 -107 -119 -159%0A-177 -52 -58 -190 -212 -305 -341 -628 -702 -1422 -1588 -1442 -1610 l-23 -25%0A0 455 1 455 480 530 c265 292 533 587 596 658 l116 127 400 0 399 0 -63 -72z%0Am749 -80 c-165 -189 -706 -810 -808 -928 -41 -48 -129 -149 -196 -226 -67 -76%0A-352 -405 -635 -730 -283 -325 -631 -725 -774 -889 l-260 -299 -3 484 -2 483%0A44 51 c24 28 398 447 831 931 434 484 868 969 964 1077 l176 198 398 0 398 0%0A-133 -152z m162 -1468 l0 -1610 -1406 0 c-1337 0 -1406 1 -1393 17 8 10 131%0A153 274 317 143 164 294 338 335 386 41 48 372 428 735 845 363 417 694 797%0A735 845 375 434 706 810 712 810 5 0 8 -724 8 -1610z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 72px 165px;
+    background-repeat: repeat;
+}
+
+
 .hr {
     width: 80%;
     color: #FBFBFB ;
