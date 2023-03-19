@@ -24,9 +24,9 @@ export function OrderForm({
  {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <FormWrapper title="Adressdaten">
+    <FormWrapper title="Auftragsinfos">
         <input type="text" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}/>
-        <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} required value={productType}/>
+        <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} required/>
         <Dropdown></Dropdown>
     </FormWrapper>
     ) 
