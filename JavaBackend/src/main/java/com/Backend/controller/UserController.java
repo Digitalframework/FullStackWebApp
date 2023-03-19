@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/auth")
 @CrossOrigin
 public class UserController {
 
@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @GetMapping("/auth/userinfo")
+    @GetMapping("/userinfo")
     public ResponseEntity<?> getUserInfo(Principal user){
         User userObj=(User) userDetailsService.loadUserByUsername(user.getName());
 
@@ -34,11 +34,7 @@ public class UserController {
         userInfo.setLastName(userObj.getLastName());
         userInfo.setEmail(userObj.getUsername());
         //userInfo.setRoles(userObj.getAuthorities().toArray());
-
-
         return ResponseEntity.ok(userInfo);
-
-
 
     }
 
