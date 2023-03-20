@@ -22,7 +22,7 @@ export default function Layout() {
                         <p className={styles.pcarousel}style={{transform: `translateY(${height}%)`}}>
                         Wir führen unsere Projekte für große Unternehmen sowie wie private Kunden sorgfaltig und schnell durch.
                         </p>
-                    <div className={styles.buttonwrapper} style={{transform: `translateY(${height}%)`}}>
+                    <div className={styles.buttonwrapper} style={{translate: `translateY(${height}%)`}}>
                     <a href="#" className={styles.btn}>Unsere Projekte</a>
                     </div>
                 </div>
@@ -38,8 +38,12 @@ export default function Layout() {
                         <hr className={styles.hr}/>
                         <h3 className={styles.h3}>Treten sie mit dem Formular mit uns in Kontakt</h3>
                     </div>
+                    <div className={styles.verticalbar}>
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 14.707 14.707" xmlSpace="preserve" width="256px" height="256px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <rect x="6.275" y="0" style={{fill:"#222222"}} width="2.158" height="14.707"></rect> </g> </g></svg>
+                    </div>
                 </div>
-                <div className={styles.verticalbar} style={{transform: `translateY(${0.7*height}%)`}}></div>
+               
+                
                 <div className={styles.tilecontainer}> 
                     <div className={styles.backgroundcontainer}></div>
                     <div className={styles.productinfo}></div>
