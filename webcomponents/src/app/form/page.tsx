@@ -28,7 +28,7 @@ const INITIAL_DATA: FormData = {
   zip: "",
   sqm: "",
   productType: "",
-  date: new Date("23/25/2014")
+  date: new Date("")
 }
 
 export default function Form() {
