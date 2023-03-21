@@ -1,36 +1,15 @@
-package com.Backend.order;
-
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.Backend.response;
 
 import java.util.Date;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name="orderdetail")
-public class Order {
+public class OrderInfo {
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private Integer sqm;
     private String productType;
+
     private String date;
+
+
 
     public Integer getSqm() {
         return sqm;

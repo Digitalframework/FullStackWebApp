@@ -14,13 +14,6 @@ import lombok.NoArgsConstructor;
 @Table(name="adress")
 public class Adress {
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Id
     @Column(name="id")
@@ -30,6 +23,15 @@ public class Adress {
     private String number;
     private String city;
     private String zip;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 
     public String getStreet() {
         return street;
