@@ -22,7 +22,7 @@ export default function Layout() {
                         <p className={styles.pcarousel}style={{transform: `translateY(${height}%)`}}>
                         Wir führen unsere Projekte für große Unternehmen sowie wie private Kunden sorgfaltig und schnell durch.
                         </p>
-                    <div className={styles.buttonwrapper} style={{translate: `translateY(${height}%)`}}>
+                    <div className={styles.buttonwrapper} style={{transform: `translateY(${height}%)`}}>
                     <a href="#" className={styles.btn}>Unsere Projekte</a>
                     </div>
                 </div>
