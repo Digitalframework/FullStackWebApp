@@ -37,8 +37,14 @@ const [productType, setProductType] = useState('');
         <img src=
 "https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         width="80" height="80"/><p>Tanne</p></a>
-
-        
+         <a href="#Produktart" onClick={() => setProductType("Tanne")}>
+        <img src=
+"https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        width="80" height="80"/><p>Tanne</p></a>
+         <a href="#Produktart" onClick={() => setProductType("Tanne")}>
+        <img src=
+"https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        width="80" height="80"/><p>Tanne</p></a>
         
 </div>
 </div>
