@@ -9,9 +9,9 @@ import { Dropdown } from './Dropdown';
 import axios from "axios";
 
 type OrderData = {
-  sqm: string
+  sqm: number
   productType: string
-  date: Date
+  date: string
 }
 
 type OrderFormProps = OrderData & {
@@ -26,17 +26,26 @@ export function OrderForm({
 }: OrderFormProps)
  {
 
+  function setDate(date:Date) {
+    setStartDate(date);
+    updateField(date);
+  }
 
+  function updateField(dateinp:Date) {
+
+    updateFields({ date: dateinp.toDateString() })
+  }
 
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
   );
   return (
     <FormWrapper title="Auftragsinfos">
-        <input type="text" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}/>
+        <input type="text" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
+      onChange={e => updateFields({ sqm: e.target.valueAsNumber })}/>
         <DatePicker
-      selected={startDate}
-      onChange={(date:Date) => setStartDate(date)}
+      selected={startDate} 
+      onChange={(date:Date) => setDate(date)}
       showTimeSelect
       excludeTimes={[
         setHours(setMinutes(new Date(), 0), 17),

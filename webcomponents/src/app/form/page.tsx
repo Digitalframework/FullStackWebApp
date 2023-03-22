@@ -5,6 +5,7 @@ import {useMultistepForm} from '../../hooks/useMultistepForm';
 import { UserForm } from "./UserForm";
 import { AddressForm } from "./AddressForm";
 import { OrderForm } from "./OrderForm";
+import axios from 'axios';
 
 type FormData = {
   firstnameUF: string
@@ -14,9 +15,9 @@ type FormData = {
   number: string
   city: string
   zip: string
-  sqm: string
+  sqm: number
   productType: string
-  date: Date
+  date: string
 }
 const INITIAL_DATA: FormData = {
   firstnameUF: "",
@@ -26,9 +27,9 @@ const INITIAL_DATA: FormData = {
   number: "",
   city: "",
   zip: "",
-  sqm: "",
+  sqm: 0,
   productType: "",
-  date: new Date("")
+  date: ""
 }
 
 export default function Form() {
@@ -46,10 +47,38 @@ export default function Form() {
       <OrderForm {...data} updateFields={updateFields} />,
     ])
 
-  function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (!isLastStep) return next()
-    alert("Successful Account Creation")
+    try {
+      await 
+      axios.all([
+        axios.post(
+          'http://localhost:8080/api/v1/auth/adress',
+          {
+            id: "1",
+            street: data.street,
+            number: data.number,
+            city: data.city,
+            zip: data.zip,
+          }), 
+        axios.post('http://localhost:8080/api/v1/auth/order', {
+          id: "1",
+          sqm: data.sqm,
+          productType: "Birke",
+          date: data.date
+        })
+      ])
+
+      .then(axios.spread((data1, data2) => {
+        // output of req.
+        console.log('data1', data1, 'data2', data2)
+      }));
+      
+      }
+      catch(err){
+        alert("User Registration failed");
+      }
   }
   /*
 
