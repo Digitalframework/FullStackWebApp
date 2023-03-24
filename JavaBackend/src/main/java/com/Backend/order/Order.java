@@ -25,8 +25,7 @@ public class Order {
     }
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
     private Integer sqm;
     private String productType;
