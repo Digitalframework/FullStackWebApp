@@ -27,7 +27,7 @@ const INITIAL_DATA: FormData = {
   number: "",
   city: "",
   zip: "",
-  sqm: 0,
+  sqm: 2,
   productType: "",
   date: ""
 }
@@ -54,25 +54,31 @@ export default function Form() {
       await 
       axios.all([
         axios.post(
+          'http://localhost:8080/api/v1/auth/register',
+          {
+            firstname: data.firstnameUF,
+            lastname: data.lastnameUF,
+            email: data.emailUF,
+            password: "1234",
+          }), 
+        axios.post(
           'http://localhost:8080/api/v1/auth/adress',
           {
-            id: "1",
             street: data.street,
             number: data.number,
             city: data.city,
             zip: data.zip,
           }), 
         axios.post('http://localhost:8080/api/v1/auth/order', {
-          id: "1",
           sqm: data.sqm,
-          productType: "Birke",
+          productType: data.productType,
           date: data.date
         })
       ])
 
-      .then(axios.spread((data1, data2) => {
+      .then(axios.spread((data1, data2,data3) => {
         // output of req.
-        console.log('data1', data1, 'data2', data2)
+        console.log('data1', data1, 'data2', data2, 'data3', data3)
       }));
       
       }

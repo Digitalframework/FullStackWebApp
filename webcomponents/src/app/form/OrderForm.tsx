@@ -17,6 +17,8 @@ type OrderData = {
 type OrderFormProps = OrderData & {
   updateFields: (fields: Partial<OrderData>) => void
 }
+
+
 //<input type="text" name="productType" placeholder="Holzart" required/>
 export function OrderForm({
   sqm,
@@ -26,22 +28,26 @@ export function OrderForm({
 }: OrderFormProps)
  {
 
-  function setDate(date:Date) {
-    setStartDate(date);
-    updateField(date);
+  function dateFormatter(date:Date):string{
+    return date.getFullYear() + "/" + (date.getMonth()+1)
+    + "/" + date.getDate() + "/" + date.getHours() + ":" + date.getMinutes()
   }
 
-  function updateField(dateinp:Date) {
-
-    updateFields({ date: dateinp.toDateString() })
+  function setDate(dateinp:Date) {
+    updateFields({ date: dateFormatter(dateinp) })
+    setStartDate(dateinp);
   }
-
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
   );
+
+  const productTypeDropdown = (productTypeChild: string) => {
+    updateFields({ productType: productTypeChild })
+  } 
+
   return (
     <FormWrapper title="Auftragsinfos">
-        <input type="text" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
+        <input type="number" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
       onChange={e => updateFields({ sqm: e.target.valueAsNumber })}/>
         <DatePicker
       selected={startDate} 
@@ -55,7 +61,12 @@ export function OrderForm({
       ]}
       dateFormat="yyyy/MM/d/h:mm"
     />
-        <Dropdown></Dropdown>
+    <div className={styles.dropdown}> 
+      <label className={styles.label}>   
+      <input type="text" className={styles.dropbtn} value={productType} required placeholder="Holzart"/>
+      </label>
+      <Dropdown setProductType={productTypeDropdown}></Dropdown>
+      </div> 
     </FormWrapper>
     ) 
     

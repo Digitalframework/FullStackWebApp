@@ -5,16 +5,17 @@ import styles from './Form.module.css'
 //	display: inline-block;
 //}
 
+type DropdownProps = {
+        setProductType: (setProductType: string) => void
+}
 
-export function Dropdown(){
 
-const [productType, setProductType] = useState('');
+export function Dropdown({ setProductType }:DropdownProps){
+
+
 
     return (   
-<div className={styles.dropdown}>
-<label className={styles.label}>   
-<input type="text" className={styles.dropbtn} value={productType} required placeholder="Holzart"/>
-</label>     
+
   
 <div id="Produktart" className={styles.dropdowncontent}>
 
@@ -47,6 +48,6 @@ const [productType, setProductType] = useState('');
         width="80" height="80"/><p>Tanne</p></a>
         
 </div>
-</div>
+
 )
 }
