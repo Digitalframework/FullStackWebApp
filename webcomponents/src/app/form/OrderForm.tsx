@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Form.module.css';
 import { FormWrapper } from './FormWrapper';
 import DatePicker from "react-datepicker";
@@ -27,6 +27,33 @@ export function OrderForm({
   updateFields,
 }: OrderFormProps)
  {
+  
+  const [hours, setBookedHours] = useState(Array<number>)
+  const [minutes, setBookedMinutes] = useState(Array<number>)
+  const [bookedTimes, setBookedTimes] = useState(Array<Date>)
+
+  useEffect(() => {
+
+    // Update the document title using the browser API
+    async function fetchDates() {
+      axios
+    .get("http://localhost:8080/api/v1/auth/orderList")
+    .then(function (response) {
+      response.data.forEach(function (item:any) {
+        var dateInString = item.date.split("/", 4);
+        console.log(dateInString)
+        var time = dateInString[3].split(":", 2); 
+        console.log(time[0] + " " + time[1])
+        console.log(typeof(parseInt(time[0])))
+
+        hours.push(parseInt(time[0])); 
+        minutes.push(parseInt(time[1]));
+    });  
+    });
+    }
+    fetchDates()
+    bookedDates()
+  }, []);
 
   function dateFormatter(date:Date):string{
     return date.getFullYear() + "/" + (date.getMonth()+1)
@@ -34,8 +61,10 @@ export function OrderForm({
   }
 
   function setDate(dateinp:Date) {
+    bookedDates();
     updateFields({ date: dateFormatter(dateinp) })
     setStartDate(dateinp);
+    
   }
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
@@ -43,7 +72,15 @@ export function OrderForm({
 
   const productTypeDropdown = (productTypeChild: string) => {
     updateFields({ productType: productTypeChild })
-  } 
+  }
+
+  function bookedDates(): Date[]{
+    console.log(hours)
+    for (let i=0; i<hours.length;i++){
+      bookedTimes.push(setHours(setMinutes(new Date(), minutes[i]), hours[i]))
+    }
+    return bookedTimes
+  }
 
   return (
     <FormWrapper title="Auftragsinfos">
@@ -53,12 +90,9 @@ export function OrderForm({
       selected={startDate} 
       onChange={(date:Date) => setDate(date)}
       showTimeSelect
-      excludeTimes={[
-        setHours(setMinutes(new Date(), 0), 17),
-        setHours(setMinutes(new Date(), 30), 18),
-        setHours(setMinutes(new Date(), 30), 19),
-        setHours(setMinutes(new Date(), 30), 17),
-      ]}
+      excludeTimes={
+        bookedDates()
+      }
       dateFormat="yyyy/MM/d/h:mm"
     />
     <div className={styles.dropdown}> 
@@ -71,3 +105,5 @@ export function OrderForm({
     ) 
     
     }
+
+
