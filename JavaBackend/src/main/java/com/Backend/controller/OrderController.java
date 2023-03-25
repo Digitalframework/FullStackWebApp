@@ -17,6 +17,13 @@ public class OrderController {
     @Autowired
     private OrderService services;
 
+    @GetMapping("/orderList")
+    public Iterable<Order>getOrder()
+    {
+        return services.listAll();
+    }
+
+
     @PostMapping(value = "/order")
     private long saveBook(@RequestBody Order order)
     {
