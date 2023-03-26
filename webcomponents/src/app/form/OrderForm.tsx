@@ -29,7 +29,6 @@ export function OrderForm({
 }: OrderFormProps)
  {
   
-
   const [bookedTimes, setBookedTimes] = useState(Array<Date>)
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
@@ -40,33 +39,32 @@ export function OrderForm({
 
 
   useEffect(() => {
-    console.log("useEffectcall")
+    console.log("useEffect")
     // Update the document title using the browser API
+    var currentDate = startDate.getFullYear() + "/" + (startDate.getMonth()+1)
+        + "/" + startDate.getDate()
     async function fetchDates() {
     await axios
     .get("http://localhost:8080/api/v1/auth/orderList")
     .then(function (response) {
       response.data.forEach(function (item:any) {
         dateCollection.push(item.date)
+        
         var dateInString = item.date.split("/", 4);
-        console.log(dateInString)
-        var time = dateInString[3].split(":", 2); 
+        var time = dateInString[3].split(":", 2);
         var bookedDates = dateInString[0] + "/" + dateInString[1] + "/" + dateInString[2]
-        var currentDate = startDate.getFullYear() + "/" + (startDate.getMonth()+1)
-        + "/" + startDate.getDate()
-        console.log(bookedDates + " " + currentDate)
-        console.log(bookedDates== currentDate)
-        if(bookedDates== currentDate){
-          console.log("in if")
-          bookedTimes.push(setHours(setMinutes(new Date(bookedDates), parseInt(time[1])), parseInt(time[0])))
-          
-        }
-
+        console.log(currentDate)
+        console.log(bookedDates)
+        console.log(currentDate == bookedDates)
+        if (currentDate == bookedDates){
+          bookedTimes.push(
+            setHours(setMinutes(new Date(), parseInt(time[1])), parseInt(time[0])));
+          }   
     });  
     });
     }
     fetchDates()
-  }, [startDate]); //?? besser anders
+  }, []); //?? besser anders
 
   function dateFormatter(date:Date):string{
     return date.getFullYear() + "/" + (date.getMonth()+1)
@@ -76,8 +74,6 @@ export function OrderForm({
   function setDate(dateinp:Date) {
     setStartDate(dateinp);
     updateFields({ date: dateFormatter(dateinp) })
-    getExcludedTimes()
-    
   }
   
   const productTypeDropdown = (productTypeChild: string) => {
@@ -87,7 +83,7 @@ export function OrderForm({
   
   function getExcludedTimes() {
     console.log("getExcludedTimes")
-    
+    console.log(dateCollection)
     var arrExcludedTimes:Date[] = []
     var currentDate = startDate.getFullYear() + "/" + (startDate.getMonth()+1)
         + "/" + startDate.getDate() 
@@ -96,21 +92,25 @@ export function OrderForm({
       var time = dateInString[3].split(":", 2);
       var bookedDates = dateInString[0] + "/" + dateInString[1] + "/" + dateInString[2]
       if(bookedDates== currentDate){
+        console.log("push")
         arrExcludedTimes.push(
           setHours(setMinutes(new Date(), parseInt(time[1])), parseInt(time[0])));
       }
          
     });
+    console.log(arrExcludedTimes)
+    console.log(arrExcludedTimes.length)
+    
     setBookedTimes(arrExcludedTimes)
   }
 
-  //onSelect={getExcludedTimes}        
+  //      
   return (
     <FormWrapper title="Auftragsinfos">
         <input type="number" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
       onChange={e => updateFields({ sqm: e.target.valueAsNumber })}/>
         <DatePicker
-      
+      onSelect={getExcludedTimes}  
       selected={startDate} 
       onChange={(date:Date) => setDate(date)}
       showTimeSelect
