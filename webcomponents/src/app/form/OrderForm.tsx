@@ -43,12 +43,13 @@ export function OrderForm({
     // Update the document title using the browser API
     var currentDate = startDate.getFullYear() + "/" + (startDate.getMonth()+1)
         + "/" + startDate.getDate()
+    var arrExcludedTimes:String[] = []    
     async function fetchDates() {
     await axios
     .get("http://localhost:8080/api/v1/auth/orderList")
     .then(function (response) {
       response.data.forEach(function (item:any) {
-        dateCollection.push(item.date)
+        arrExcludedTimes.push(item.date)
         
         var dateInString = item.date.split("/", 4);
         var time = dateInString[3].split(":", 2);
@@ -62,6 +63,7 @@ export function OrderForm({
           }   
     });  
     });
+    setDateCollection(arrExcludedTimes)
     }
     fetchDates()
   }, []); //?? besser anders
@@ -81,16 +83,20 @@ export function OrderForm({
   }
 
   
-  function getExcludedTimes() {
+  function getExcludedTimes(date:Date) {
+    setStartDate(date);
+    console.log(date)
     console.log("getExcludedTimes")
     console.log(dateCollection)
     var arrExcludedTimes:Date[] = []
-    var currentDate = startDate.getFullYear() + "/" + (startDate.getMonth()+1)
-        + "/" + startDate.getDate() 
+    var currentDate = date.getFullYear() + "/" + (date.getMonth()+1)
+        + "/" + date.getDate() 
     dateCollection.forEach(function (item:any) {
       var dateInString = item.split("/", 4);
       var time = dateInString[3].split(":", 2);
       var bookedDates = dateInString[0] + "/" + dateInString[1] + "/" + dateInString[2]
+      console.log(currentDate)
+      console.log(bookedDates)
       if(bookedDates== currentDate){
         console.log("push")
         arrExcludedTimes.push(
@@ -110,7 +116,7 @@ export function OrderForm({
         <input type="number" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
       onChange={e => updateFields({ sqm: e.target.valueAsNumber })}/>
         <DatePicker
-      onSelect={getExcludedTimes}  
+      onSelect={(date:Date) => getExcludedTimes(date)}  
       selected={startDate} 
       onChange={(date:Date) => setDate(date)}
       showTimeSelect
