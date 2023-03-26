@@ -31,12 +31,17 @@ export function OrderForm({
   const [hours, setBookedHours] = useState(Array<number>)
   const [minutes, setBookedMinutes] = useState(Array<number>)
   const [bookedTimes, setBookedTimes] = useState(Array<Date>)
+  const [startDate, setStartDate] = useState(
+    setHours(setMinutes(new Date(), 30), 16)
+  );
+
+
 
   useEffect(() => {
-
+    console.log("useEffectcall")
     // Update the document title using the browser API
     async function fetchDates() {
-      axios
+    await axios
     .get("http://localhost:8080/api/v1/auth/orderList")
     .then(function (response) {
       response.data.forEach(function (item:any) {
@@ -45,15 +50,16 @@ export function OrderForm({
         var time = dateInString[3].split(":", 2); 
         console.log(time[0] + " " + time[1])
         console.log(typeof(parseInt(time[0])))
-
+        var bookedDates = dateInString[0] + "/" + dateInString[1] + "/" + dateInString[2]
+        console.log(bookedDates)
         hours.push(parseInt(time[0])); 
         minutes.push(parseInt(time[1]));
+        bookedTimes.push(setHours(setMinutes(new Date(bookedDates), parseInt(time[1])), parseInt(time[0])))
     });  
     });
     }
     fetchDates()
-    bookedDates()
-  }, []);
+  }, [startDate]);
 
   function dateFormatter(date:Date):string{
     return date.getFullYear() + "/" + (date.getMonth()+1)
@@ -61,37 +67,29 @@ export function OrderForm({
   }
 
   function setDate(dateinp:Date) {
-    bookedDates();
     updateFields({ date: dateFormatter(dateinp) })
     setStartDate(dateinp);
     
   }
-  const [startDate, setStartDate] = useState(
-    setHours(setMinutes(new Date(), 30), 16)
-  );
-
+  
   const productTypeDropdown = (productTypeChild: string) => {
     updateFields({ productType: productTypeChild })
   }
 
-  function bookedDates(): Date[]{
-    console.log(hours)
-    for (let i=0; i<hours.length;i++){
-      bookedTimes.push(setHours(setMinutes(new Date(), minutes[i]), hours[i]))
-    }
-    return bookedTimes
-  }
 
   return (
     <FormWrapper title="Auftragsinfos">
         <input type="number" name="sqm" placeholder="Quadratmeteranzahl" required value={sqm}
       onChange={e => updateFields({ sqm: e.target.valueAsNumber })}/>
         <DatePicker
+        
       selected={startDate} 
       onChange={(date:Date) => setDate(date)}
       showTimeSelect
+      minTime={setHours(setMinutes(new Date(), 0), 8)}
+      maxTime={setHours(setMinutes(new Date(), 0), 19)}
       excludeTimes={
-        bookedDates()
+        bookedTimes
       }
       dateFormat="yyyy/MM/d/h:mm"
     />
