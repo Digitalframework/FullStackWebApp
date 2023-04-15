@@ -11,8 +11,8 @@ spring:
     port: 587
     username: digitalframeworksm@gmail.com
     password: spygvjmvmsugsgyp
-    smtp.auth: true
-    starttls.enable: true
+    properties.mail.smtp.auth: true
+    properties.mail.starttls.enable: true
   datasource:
     password: 2708
     url: jdbc:postgresql://localhost:5432/jwt_security

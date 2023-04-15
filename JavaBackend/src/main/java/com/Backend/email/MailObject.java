@@ -1,9 +1,9 @@
 package com.Backend.email;
-
+/*
 public class MailObject {
-    @Email
-    @NotNull
-    @Size(min = 1, message = "Please, set an email address to send the message to it")
+    //@Email
+    //@NotNull
+    //@Size(min = 1, message = "Please, set an email address to send the message to it")
     private String to;
     private String recipientName;
     private String subject;
@@ -61,3 +61,5 @@ public class MailObject {
 
 
 }
+
+ */

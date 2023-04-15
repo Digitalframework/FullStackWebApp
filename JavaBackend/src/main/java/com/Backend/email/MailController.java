@@ -6,34 +6,32 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+//import javax.mail.MessagingException;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin
 @Controller
-@RequestMapping("/mail")
+@RequestMapping("/api/auth/v1")
+@CrossOrigin
 public class MailController {
 
     @Autowired
     public EmailService emailService;
 
-    @Value("${attachment.invoice}")
-    private String attachmentPath;
+    //@Value("${attachment.invoice}")
+    //private String attachmentPath;
 
-    private static final Map<String, Map<String, String>> labels;
+    //private static final Map<String, Map<String, String>> labels;
 
+    /*
     static {
         labels = new HashMap<>();
 
@@ -53,6 +51,9 @@ public class MailController {
 
     }
 
+     */
+
+    /*
     @RequestMapping(method = RequestMethod.GET)
     public String showEmailsPage() {
         return "emails";
@@ -107,5 +108,14 @@ public class MailController {
 
         return "redirect:/mail";
     }
+
+     */
+    @PostMapping("/mail")
+    String sendEmail(){
+        this.emailService.sendSimpleMessage("stefan-hausner96@hotmail.de",
+                "test","HelloWorld");
+        return "Message send";
+    }
+
 
 }

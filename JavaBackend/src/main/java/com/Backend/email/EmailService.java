@@ -18,17 +18,20 @@ public class EmailService implements EmailServiceInterface {
 
     private static final String NOREPLY_ADDRESS = "stefan-hausner96@hotmail.de";
 
+
     @Autowired
     private JavaMailSender emailSender;
+    /*
+        @Autowired
+        private SimpleMailMessage template;
 
-    @Autowired
-    private SimpleMailMessage template;
+        @Value("Buche.jpg")
+        private Resource resourceFile;
+        @Autowired
+        private FreeMarkerConfigurer freemarkerConfigurer;
 
-    @Value("Buche.jpg")
-    private Resource resourceFile;
-    @Autowired
-    private FreeMarkerConfigurer freemarkerConfigurer;
 
+         */
     public void sendSimpleMessage(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
@@ -42,8 +45,14 @@ public class EmailService implements EmailServiceInterface {
             exception.printStackTrace();
         }
     }
+    @Override
+    public void sendMessageWithAttachment(String to,
+                                          String subject,
+                                          String text,
+                                          String pathToAttachment) {
 
-
+    }
+    /*
     @Override
     public void sendMessageWithAttachment(String to,
                                           String subject,
@@ -67,6 +76,8 @@ public class EmailService implements EmailServiceInterface {
             e.printStackTrace();
         }
     }
+
+     */
 
 
 }
