@@ -1,9 +1,11 @@
-package com.Backend.email;
+package com.Backend.controller;
 
 //import javax.mail.MessagingException;
 //import javax.servlet.http.HttpServletRequest;
 //import javax.validation.Valid;
 
+import com.Backend.email.EmailDetails;
+import com.Backend.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class EmailController {
 
     @Autowired
-    private  EmailService emailService;
+    private EmailService emailService;
 
 
     @PostMapping("/sendEmail")
