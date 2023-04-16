@@ -93,9 +93,9 @@ export default function Form() {
       <div className={styles.formroot}>
     <form className={styles.msform} onSubmit={onSubmit}>
     <ul className={styles.progressbar}>
-        <li>Kundeninfos</li>
-        <li>Adressdaten</li>
-        <li>Auftragsinfos</li>
+        <li className={currentStepIndex== 0||1||2 ?styles.active:styles.notactive}>Kundeninfos </li>
+        <li className={currentStepIndex== 1 || isLastStep ?styles.active:styles.notactive} >Adressdaten</li>
+        <li className={currentStepIndex== 2 ?styles.active:styles.notactive}>Auftragsinfos</li>
       </ul>
       {step}
           {!isFirstStep && (
