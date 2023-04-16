@@ -22,7 +22,7 @@ public class EmailService implements EmailServiceInterface {
     @Autowired
     private JavaMailSender emailSender;
 
-    public String sendSimpleMessage(EmailDetails details) {
+    public String sendEmail(EmailDetails details) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(sender);
@@ -38,7 +38,7 @@ public class EmailService implements EmailServiceInterface {
         }
     }
     @Override
-    public String sendMessageWithAttachment(EmailDetails details) {
+    public String sendEmailWithAttachment(EmailDetails details) {
         {
             // Creating a mime message
             MimeMessage mimeMessage
