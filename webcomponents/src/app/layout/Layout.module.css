@@ -3,10 +3,8 @@
 
 .picturecarousel {
     display:flex;
-    overflow: hidden;
     position: relative;
     width: 100%;
-    background: #222222;
 }
 .picturecarousel>img {
 	width: 100%;
@@ -14,9 +12,8 @@
 	position: absolute;
 	animation: animate 15s infinite;
 	opacity: 0;
-	-webkit-background-size: cover;
-	background-size: cover;
 	background-position: center center;
+    object-fit: cover;
 }
 .picturecarousel>img:nth-child(2) {
 	animation-delay: 4s;
@@ -228,7 +225,11 @@
     .picturecontainer{
         margin-left: 25%;
         margin-right: 25%;
-    }  
+    }
+    .picturecarousel>img {
+        height: 50%;
+        width: 100%;
+    }
     
 
 }
