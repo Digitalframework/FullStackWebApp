@@ -8,10 +8,8 @@
   
 }
 .logo {
-  -webkit-filter: invert(1);
   filter: invert(1);
   margin: 1rem;
-  width: 20%;
 }
 
 
