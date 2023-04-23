@@ -246,6 +246,11 @@
         height:40vh;
     
     }
-
+    .pcarousel {
+        font-size: 16px;
+    }
+    .h1carousel {
+        font-size: 18px;
+    }
 
 }
