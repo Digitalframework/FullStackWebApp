@@ -1,0 +1,54 @@
+.productcollection{
+    border: dotted;
+    height: 500px;
+    width: 500px;
+    margin: 100px 100px 100px 100px;
+}
+
+.productcollection>img {
+    position: absolute;
+    clip-path: polygon(0 0, 0 0, 30% 100%, 0 100%);
+
+}
+
+.productcollection>img:nth-child(2) {
+    translate: 0px 0px;
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%);
+    
+}
+.productcollection>img:nth-child(3) {
+    translate: 150px 0px;
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%);
+}
+.productcollection>img:nth-child(4) {
+    translate: 150px 0px;
+    clip-path: polygon(70% 0, 100% 0, 100% 100%, 100% 100%);
+}
+.productcollection>img:hover {
+    transform: scale(1.1,1.1);
+    translate: 10px 0px;
+}
+.productcollection>img:nth-child(2):hover {
+    translate: 0px 0px;
+    
+}
+
+.productcollection>img:nth-child(3):hover {
+    translate: 140px 0px;
+    
+}
+
+.productcollection>img:nth-child(4):hover {
+    translate: 140px 0px;
+    
+}
+
+.infotext {
+    translate: 0px 300px;
+    color: #FBFBFB ;
+    
+}
+
+.infotext>p {
+    word-wrap: break-word;
+}

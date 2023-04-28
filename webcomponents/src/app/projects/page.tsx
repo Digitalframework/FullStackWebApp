@@ -1,8 +1,8 @@
 'use client';
 import styles from './Projects.module.css'
 import cardStyles from './Card.module.css'
-import Navbar from '../navbar/page';
-import Footer from '../footer/page';
+import Navbar from '../components/navbar/page';
+import Footer from '../components/footer/page';
 
 export default function AboutUs() {
   return (

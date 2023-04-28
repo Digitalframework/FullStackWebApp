@@ -1,4 +1,3 @@
-'use client';
 import { FormEvent, useState } from 'react';
 import styles from './Form.module.css'
 import {useMultistepForm} from '../../hooks/useMultistepForm';

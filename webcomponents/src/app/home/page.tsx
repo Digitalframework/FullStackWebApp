@@ -1,11 +1,11 @@
 'use client';
-import styles from './Layout.module.css'
-import Navbar from '../navbar/page';
-import Form from '../form/page';
+import styles from './Home.module.css'
+import Navbar from '../components/navbar/page';
+import Form from '../components/form/page';
 import { useState } from 'react';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 
-export default function Layout() {
+export default function Home() {
 
     const {height,width} = useWindowDimensions();
 
