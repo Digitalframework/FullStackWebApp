@@ -1,0 +1,47 @@
+.productcollection{
+    border: dotted;
+    height: 500px;
+    width: 500px;
+    margin: 100px 100px 100px 100px;
+}
+
+.productimgcontainer{
+    position: relative;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.productimgcontainer>img {
+    position: absolute;
+    margin: auto;
+    clip-path: polygon(50% 0%, 68.93% 3.725%, 85.355% 14.645%, 96.275% 31.07%, 100% 50%, 50% 50%);
+
+}
+
+.productimgcontainer>img:nth-child(2) {
+    clip-path: polygon(50% 100%, 68.93% 96.275%, 85.355% 85.355%, 96.275% 68.93%, 100% 50%, 50% 50%);
+}
+.productimgcontainer>img:nth-child(3) {
+    clip-path: polygon(50% 100%, 31.07% 96.275%, 14.645% 85.355%, 3.725% 68.93%, 0% 50%,50% 50%);
+}
+.productimgcontainer>img:nth-child(4) {
+    clip-path: polygon(50% 0%, 31.07% 3.725%, 14.645% 14.645%, 3.725% 31.07%, 0% 50%, 50% 50%);
+}
+
+.productimgcontainer>img:hover {
+    transform: scale(1.1,1.1);
+}
+
+
+.infotext {
+    position: relative;
+    margin-top: 15%;
+    translate: 0px 300px;
+    color: #FBFBFB ;
+    
+}
+
+.infotext>p {
+    text-align: center;
+    word-wrap: break-word;
+}

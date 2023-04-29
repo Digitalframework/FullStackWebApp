@@ -101,7 +101,6 @@
   z-index:-1;
   width: 0%;
   height:1px;
-  background: #6098FF;
   box-shadow: inset 0px 0px 0px #6098FF;
   display: block;
   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
@@ -136,7 +135,7 @@
     display:flex;
     flex-wrap: wrap;
     width: 100%;
-    background: #254E58;
+    background: #1D1D1D;
 
 }
 
@@ -150,6 +149,7 @@
     font-family: sans-serif;
     line-height: 1.5;
     font-size: 25px;
+    background: #1D1D1D;
     color: #FBFBFB ;
     width: 55%;
     margin: auto;
@@ -170,7 +170,7 @@
 
 
 .contactcontainer{
-    background: #254E58;
+    background: #1A1F23;
     width: 100%;
     height: 660px;
 }
@@ -178,12 +178,14 @@
 .tilecontainer{
     width:100%;
     height: 660px;
-    background:#4F4A41;
+    background:#1A1F23;
+    background-image: url("https://github.com/Digitalframework/FullStackWebApp/blob/main/webcomponents/src/picture/WoodenTrunkPage.png?raw=true");
+    background-repeat: no-repeat;    
 }
 
 .productinfo{
-    float: left;
-    width: 85%;
+    margin-left: 25%;
+    width: 68%;
     height: 576px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background:#6E6658;
@@ -192,7 +194,6 @@
 .backgroundcontainer{
     float: left;
     height: 660px;
-    background-repeat: repeat;
 }
 
 
