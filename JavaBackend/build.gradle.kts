@@ -24,6 +24,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-mail")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	// https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
+	implementation ("org.apache.pdfbox:pdfbox:3.0.0-alpha3")
 	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
 	implementation("com.itextpdf:itext7-core:7.2.3")
 	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")

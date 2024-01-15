@@ -56,7 +56,7 @@ public class EmailService implements EmailServiceInterface {
                 mimeMessageHelper.setText(details.getMsgBody());
                 mimeMessageHelper.setSubject(
                         details.getSubject());
-
+                //Hier!!!!!!!!!!!!!!!!!!!!!!!!!!
                 // Adding the attachment
                 FileSystemResource file
                         = new FileSystemResource(
